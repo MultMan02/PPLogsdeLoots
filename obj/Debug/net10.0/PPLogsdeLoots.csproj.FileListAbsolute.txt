@@ -1,0 +1,14 @@
+C:\Users\daran\CodinsFR\ProcessamentoPar\PPLogsdeLoots\bin\Debug\net10.0\PPLogsdeLoots.exe
+C:\Users\daran\CodinsFR\ProcessamentoPar\PPLogsdeLoots\bin\Debug\net10.0\PPLogsdeLoots.deps.json
+C:\Users\daran\CodinsFR\ProcessamentoPar\PPLogsdeLoots\bin\Debug\net10.0\PPLogsdeLoots.runtimeconfig.json
+C:\Users\daran\CodinsFR\ProcessamentoPar\PPLogsdeLoots\bin\Debug\net10.0\PPLogsdeLoots.dll
+C:\Users\daran\CodinsFR\ProcessamentoPar\PPLogsdeLoots\bin\Debug\net10.0\PPLogsdeLoots.pdb
+C:\Users\daran\CodinsFR\ProcessamentoPar\PPLogsdeLoots\obj\Debug\net10.0\PPLogsdeLoots.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\daran\CodinsFR\ProcessamentoPar\PPLogsdeLoots\obj\Debug\net10.0\PPLogsdeLoots.AssemblyInfoInputs.cache
+C:\Users\daran\CodinsFR\ProcessamentoPar\PPLogsdeLoots\obj\Debug\net10.0\PPLogsdeLoots.AssemblyInfo.cs
+C:\Users\daran\CodinsFR\ProcessamentoPar\PPLogsdeLoots\obj\Debug\net10.0\PPLogsdeLoots.csproj.CoreCompileInputs.cache
+C:\Users\daran\CodinsFR\ProcessamentoPar\PPLogsdeLoots\obj\Debug\net10.0\PPLogsdeLoots.dll
+C:\Users\daran\CodinsFR\ProcessamentoPar\PPLogsdeLoots\obj\Debug\net10.0\refint\PPLogsdeLoots.dll
+C:\Users\daran\CodinsFR\ProcessamentoPar\PPLogsdeLoots\obj\Debug\net10.0\PPLogsdeLoots.pdb
+C:\Users\daran\CodinsFR\ProcessamentoPar\PPLogsdeLoots\obj\Debug\net10.0\PPLogsdeLoots.genruntimeconfig.cache
+C:\Users\daran\CodinsFR\ProcessamentoPar\PPLogsdeLoots\obj\Debug\net10.0\ref\PPLogsdeLoots.dll
