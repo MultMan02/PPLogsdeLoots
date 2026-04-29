@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PPLogsdeLoots")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e39f787c8aed321a12b698a8e7dc70e59f75f7e8")]
 [assembly: System.Reflection.AssemblyProductAttribute("PPLogsdeLoots")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PPLogsdeLoots")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

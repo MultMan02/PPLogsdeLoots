@@ -12,3 +12,4 @@ C:\Users\daran\CodinsFR\ProcessamentoPar\PPLogsdeLoots\obj\Debug\net10.0\refint\
 C:\Users\daran\CodinsFR\ProcessamentoPar\PPLogsdeLoots\obj\Debug\net10.0\PPLogsdeLoots.pdb
 C:\Users\daran\CodinsFR\ProcessamentoPar\PPLogsdeLoots\obj\Debug\net10.0\PPLogsdeLoots.genruntimeconfig.cache
 C:\Users\daran\CodinsFR\ProcessamentoPar\PPLogsdeLoots\obj\Debug\net10.0\ref\PPLogsdeLoots.dll
+C:\Users\daran\CodinsFR\ProcessamentoPar\PPLogsdeLoots\obj\Debug\net10.0\PPLogsdeLoots.sourcelink.json
