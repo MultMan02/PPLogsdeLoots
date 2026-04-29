@@ -6,7 +6,7 @@ class Program
 {
     const string REGULAREXPRESSION = @"^[A-ZÀ-Ÿ][a-zà-ÿ]+(_[A-Za-zÀ-ÿ]*)?_[A-ZÀ-Ÿ][a-zà-ÿ]+;[0-9]+[\.,][0-9]+;[A-ZÀ-Ÿ][a-zà-ÿ]+(_[A-Za-zÀ-ÿ]*)?_[A-ZÀ-Ÿ][a-zà-ÿ]+;[0-9]{4}-(0?[1-9]|1[0-2])-[0-9]{2}\s(:?[0-9]{2}){3}$";
     const double ALIQUOTA = 0.05d;
-    static int validItemCount = 0;
+    private static long sequentialTime = 0;
     static double totalImpostos = 0.0d;
     static double totalImpostosParalelos = 0.0d;
     static object locker = new object();
@@ -23,8 +23,6 @@ class Program
             {
                 if (System.Text.RegularExpressions.Regex.IsMatch(line, REGULAREXPRESSION))
                 {
-                    validItemCount += 1;
-                    
                     string[] colums = line.Split(";");
                     
                     dataList.Add(double.Parse(colums[1], CultureInfo.InvariantCulture));
@@ -45,13 +43,15 @@ class Program
         }
         
         stopwatch.Stop();
+
+        sequentialTime = stopwatch.ElapsedMilliseconds;
         
-        Console.WriteLine($"=== SISTEMA SEQUENCIAL ===\nItens válidos: {validItemCount}\nTotal de impostos: {totalImpostos:F2}\nTempo de cálculo: {stopwatch.ElapsedMilliseconds} ms");
+        Console.WriteLine($"=== SISTEMA SEQUENCIAL ===\nItens válidos: {dataList.Count}\nTotal de impostos: {totalImpostos:F2}\nTempo de cálculo: {stopwatch.ElapsedMilliseconds} ms");
     }
 
     public static void ThreadProcess(int startPos, int endPos, List<double> dataList)
     {
-        for (int i = startPos; i <= endPos; i++)
+        for (int i = startPos; i < endPos; i++)
         {
             double tax = dataList[i] * ALIQUOTA;
             lock (locker)
@@ -63,26 +63,24 @@ class Program
 
     static void DoParalel(List<double> dataList, int threadsNumber)
     {
-        int perThread = validItemCount / threadsNumber;
-        int remainder = validItemCount % threadsNumber;
+        int perThread = dataList.Count / threadsNumber;
+        int remainder = dataList.Count % threadsNumber;
 
         System.Diagnostics.Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew();
         
         for (int i = 0; i < threadsNumber; i++)
         {
             int startPos = i * perThread;
-            int endPos = (i + 1) * perThread;
+            int endPos = startPos + perThread;
 
-            if (i == 0)
+            if (i < remainder)
             {
                 startPos += i;
-            }
-            else if (i < threadsNumber - 1)
-            {
-                startPos += 1;
+                endPos += i + 1;
             }
             else
             {
+                startPos += remainder;
                 endPos += remainder;
             }
             
@@ -98,7 +96,9 @@ class Program
         
         stopwatch.Stop();
         
-        Console.WriteLine($"=== SISTEMA PARALELO ({threadsNumber} threads) ===\nItens válidos: {validItemCount}\nTotal de impostos: {totalImpostosParalelos:F2}\nTempo de cálculo: {stopwatch.ElapsedMilliseconds} ms\nSpeedup: X");
+        double speedUp = sequentialTime / (double)stopwatch.ElapsedMilliseconds;
+        
+        Console.WriteLine($"=== SISTEMA PARALELO ({threadsNumber} threads) ===\nItens válidos: {dataList.Count}\nTotal de impostos: {totalImpostosParalelos:F2}\nTempo de cálculo: {stopwatch.ElapsedMilliseconds} ms\nSpeedup: {speedUp:F2}x");
     }
     
     static void Main(string[] args)
