@@ -51,13 +51,16 @@ class Program
 
     public static void ThreadProcess(int startPos, int endPos, List<double> dataList)
     {
+        double totalLocal = 0.0d;
+        
         for (int i = startPos; i < endPos; i++)
         {
-            double tax = dataList[i] * ALIQUOTA;
-            lock (locker)
-            {
-                totalImpostosParalelos += tax;
-            }
+            totalLocal += dataList[i] * ALIQUOTA;
+        }
+
+        lock (locker)
+        {
+            totalImpostosParalelos += totalLocal;
         }
     }
 
